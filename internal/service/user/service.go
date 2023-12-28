@@ -8,13 +8,13 @@ type Service interface {
 }
 
 type userService struct {
-	cacheRepo domain.CacheRepository
-	dbRepo    domain.DatabaseRepository
+	userRepo   domain.UserRepository
+	walletRepo domain.WalletRepository
 }
 
-func NewService(cacheRepo domain.CacheRepository, dbRepo domain.DatabaseRepository) Service {
+func NewService(userRepo domain.UserRepository, walletRepo domain.WalletRepository) Service {
 	return &userService{
-		cacheRepo: cacheRepo,
-		dbRepo:    dbRepo,
+		userRepo:   userRepo,
+		walletRepo: walletRepo,
 	}
 }

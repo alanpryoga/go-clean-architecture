@@ -2,6 +2,13 @@ package domain
 
 import "time"
 
+type UserType string
+
+const (
+	CUSTOMER UserType = "CUSTOMER"
+	MERCHANT UserType = "MERCHANT"
+)
+
 type User struct {
 	ID                string
 	Name              string
