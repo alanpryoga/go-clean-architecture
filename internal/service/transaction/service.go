@@ -1,10 +1,17 @@
 package transaction
 
-import "github.com/alanpryoga/go-clean-architecture/internal/domain"
+import (
+	"context"
+
+	"github.com/alanpryoga/go-clean-architecture/internal/domain"
+)
 
 //go:generate mockgen -source=service.go -destination=service_mock.go -package=transaction
 
 type Service interface {
+	TopUp(ctx context.Context, req TopUpRequest) error
+	Payment(ctx context.Context, req PaymentRequest) error
+	Withdraw(ctx context.Context, req WithdrawRequest) error
 }
 
 type transactionService struct {
@@ -23,4 +30,16 @@ func NewService(
 		walletRepo: walletRepo,
 		trxRepo:    trxRepo,
 	}
+}
+
+func (*transactionService) Payment(ctx context.Context, req PaymentRequest) error {
+	panic("unimplemented")
+}
+
+func (*transactionService) TopUp(ctx context.Context, req TopUpRequest) error {
+	panic("unimplemented")
+}
+
+func (*transactionService) Withdraw(ctx context.Context, req WithdrawRequest) error {
+	panic("unimplemented")
 }
