@@ -5,8 +5,8 @@ import "time"
 type UserType string
 
 const (
-	CUSTOMER UserType = "CUSTOMER"
-	MERCHANT UserType = "MERCHANT"
+	CUSTOMER UserType = "Customer"
+	MERCHANT UserType = "Merchant"
 )
 
 type User struct {
