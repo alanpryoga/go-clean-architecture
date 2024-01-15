@@ -5,8 +5,8 @@ import "time"
 type UserType string
 
 const (
-	CUSTOMER UserType = "Customer"
-	MERCHANT UserType = "Merchant"
+	Customer UserType = "Customer"
+	Merchant UserType = "Merchant"
 )
 
 type User struct {
@@ -18,15 +18,15 @@ type User struct {
 }
 
 func (u User) IsEligibleToTopUp() bool {
-	return u.UserType == CUSTOMER
+	return u.UserType == Customer
 }
 
 func (u User) IsEligibleToPayment() bool {
-	return u.UserType == CUSTOMER
+	return u.UserType == Customer
 }
 
 func (u User) IsEligibleToWithdraw() bool {
-	return u.UserType == MERCHANT
+	return u.UserType == Merchant
 }
 
 type Wallet struct {
