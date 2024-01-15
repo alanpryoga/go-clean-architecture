@@ -35,14 +35,24 @@ type Wallet struct {
 	Balance Money
 }
 
-func (w Wallet) IncreaseBalance(amount Money) error {
-	_, err := w.Balance.Add(amount)
-	return err
+func (w *Wallet) AddBalance(amount Money) error {
+	newBalance, err := w.Balance.Add(amount)
+	if err != nil {
+		return err
+	}
+
+	w.Balance = newBalance
+	return nil
 }
 
-func (w Wallet) DecreaseBalance(amount Money) error {
-	_, err := w.Balance.Sub(amount)
-	return err
+func (w *Wallet) SubBalance(amount Money) error {
+	newBalance, err := w.Balance.Sub(amount)
+	if err != nil {
+		return err
+	}
+
+	w.Balance = newBalance
+	return nil
 }
 
 type Transaction struct {
