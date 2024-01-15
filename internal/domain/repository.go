@@ -13,7 +13,7 @@ type UserRepository interface {
 
 type WalletRepository interface {
 	Insert(ctx context.Context, wallet Wallet) error
-	FindByUserID(ctx context.Context, id int64) (Wallet, error)
+	FindByUserID(ctx context.Context, id string) (Wallet, error)
 	Update(ctx context.Context, wallet Wallet) error
 }
 

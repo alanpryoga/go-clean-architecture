@@ -92,7 +92,7 @@ func (m *MockWalletRepository) EXPECT() *MockWalletRepositoryMockRecorder {
 }
 
 // FindByUserID mocks base method.
-func (m *MockWalletRepository) FindByUserID(ctx context.Context, id int64) (Wallet, error) {
+func (m *MockWalletRepository) FindByUserID(ctx context.Context, id string) (Wallet, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "FindByUserID", ctx, id)
 	ret0, _ := ret[0].(Wallet)

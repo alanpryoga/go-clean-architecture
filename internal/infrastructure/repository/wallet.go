@@ -24,7 +24,7 @@ func (*walletRepository) Insert(ctx context.Context, wallet domain.Wallet) error
 	panic("unimplemented")
 }
 
-func (*walletRepository) FindByUserID(ctx context.Context, id int64) (domain.Wallet, error) {
+func (*walletRepository) FindByUserID(ctx context.Context, id string) (domain.Wallet, error) {
 	panic("unimplemented")
 }
 
