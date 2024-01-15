@@ -36,25 +36,13 @@ type Wallet struct {
 }
 
 func (w Wallet) IncreaseBalance(amount Money) error {
-	if w.Balance.Currency != amount.Currency {
-		return ErrCurrencyMismatch
-	}
-
-	w.Balance.Value += amount.Value
-	return nil
+	_, err := w.Balance.Add(amount)
+	return err
 }
 
 func (w Wallet) DecreaseBalance(amount Money) error {
-	if w.Balance.Currency != amount.Currency {
-		return ErrCurrencyMismatch
-	}
-
-	if amount.Value > w.Balance.Value {
-		return ErrBalanceInsufficient
-	}
-
-	w.Balance.Value -= amount.Value
-	return nil
+	_, err := w.Balance.Sub(amount)
+	return err
 }
 
 type Transaction struct {
